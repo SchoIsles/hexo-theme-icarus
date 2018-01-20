@@ -5,13 +5,26 @@
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/SchoIsles/hexo-theme-icarus">icarus</a>
         </div>
     </div>
+    <% if (theme.analytics.baidu) { %>
 <script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?3b61426625c27dbdc352c0b9c37ea247";
+  hm.src = "https://hm.baidu.com/hm.js?<%= theme.analytics.baidu %>";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+    <% } %>
+    <% if (theme.analytics.google) { %>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.analytics.google %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%= theme.analytics.google %>');
+</script>
+    <% } %>
 </footer>
